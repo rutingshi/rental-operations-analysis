@@ -28,6 +28,8 @@ FROM rental
 GROUP BY staff_id, HOUR(rental_date)
 ORDER BY rental_hour, staff_id;
 
+-- Outstanding Rentals
+SELECT COUNT(*) FROM rental WHERE return_date IS NULL;
 -- 4. Rental Duration Distribution
 SELECT
     DATEDIFF(return_date, rental_date) AS rental_days,
